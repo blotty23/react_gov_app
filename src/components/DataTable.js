@@ -7,15 +7,15 @@ export default function DataTable({employeeData,gotoNextPage,rowClicked}) {
 
   const columns = [
     {
-     name: "name",
-     label: "Pokemon Name",
+     name: "firstName",
+     label: "First Name",
      options: {
       sort: true,
      }
     },
     {
-     name: "url",
-     label: "Pokemon Url",
+     name: "lastName",
+     label: "Last Name",
      options: {
       filter: false,
       sort: false,

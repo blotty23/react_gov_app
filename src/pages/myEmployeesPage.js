@@ -21,11 +21,12 @@ export default function MyEmployeesPage () {
   useEffect(()=> {
     setLoading(true)
     let cancel
-    axios.get('https://pokeapi.co/api/v2/pokemon', {
+    axios.get('http://localhost:8080/api/employeedata', {
       cancelToken: new axios.CancelToken (c => cancel = c)
     }).then(res =>{
       setLoading(false)
-      setEmployeeData(res.data.results)
+      setEmployeeData(res.data)
+      console.log(res)
     })
     return () => {cancel()}
   },[])
@@ -45,7 +46,6 @@ export default function MyEmployeesPage () {
   return (
     <>
       <Heading>My Employees</Heading>
-  
       <DataTable 
       employeeData={employeeData} 
       gotoNextPage={gotoNextPage()}
